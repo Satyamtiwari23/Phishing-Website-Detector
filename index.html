@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phishing Website Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-logo">🛡️</div>
+        <div class="brand-text">
+          <h1>Phishing Website Detector</h1>
+          <p>Analyze URLs for potential phishing risks in real time.</p>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+
+        <div class="account-wrapper">
+          <div class="account-icon" id="accountBtn">👤</div>
+          <div class="account-dropdown" id="accountMenu">
+            <a href="login.html#login">Login</a>
+            <a href="login.html#register">Register</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="app-main">
+
+      <section class="card card-input">
+        <h2 class="card-title">Check a URL</h2>
+        <p class="card-description">
+          Paste the website address below and run an instant risk assessment.
+        </p>
+
+        <form class="url-form" id="urlForm">
+          <label class="field-label" for="urlInput">Website URL</label>
+
+          <div class="url-input-group">
+            <input
+              type="text"
+              id="urlInput"
+              class="url-input"
+              placeholder="example.com or 127.0.0.1:5500"
+              required
+            />
+            <button type="submit" class="btn-primary">Scan</button>
+            <p id="inputError" class="input-error">
+              Please enter a valid website URL (example: google.com)
+            </p>            
+          </div>
+          
+        </form>
+      </section>
+
+      <section class="card card-result hidden" id="resultPanel">
+        <div class="result-header">
+          <h2 class="card-title">Scan Result</h2>
+          <span class="badge badge-neutral" id="riskBadge">No scan</span>
+        </div>
+
+        <div class="result-summary">
+          <div>
+            <span class="result-label">Risk Score</span>
+            <span class="result-value" id="riskScore">–</span>
+          </div>
+          <div>
+            <span class="result-label">Status</span>
+            <span class="result-text" id="riskStatus">–</span>
+          </div>
+        </div>
+
+        <ul class="details-list" id="reasonList"></ul>
+      </section>
+
+      <!-- Report Section -->
+      <div id="reportSection" class="report-section hidden">
+        <button id="reportBtn">🚩 Report this Website</button>
+      </div>
+
+    </main>
+
+    <footer class="app-footer">
+      Mini Project · Phishing URL Analyzer
+      <p style="text-align:center; font-size:0.75rem; color:#9ca3af;">
+        Disclaimer: This tool uses heuristic analysis and does not guarantee 100% phishing detection accuracy.
+      </p>
+      
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
